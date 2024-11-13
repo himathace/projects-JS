@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        document.addEventListener("DOMContentLoaded",function(){
+            const randomnumber=Math.floor(Math.random()*10)
+            let coumputermove;
+            if(randomnumber>0 && randomnumber<=3){
+                coumputermove="rock"
+            }
+            else if(randomnumber>=4 && randomnumber<=6){
+                coumputermove="paper"
+            }
+            else{
+                coumputermove="sissors"
+            }
+
+            console.log(coumputermove)
+
+
+            document.querySelectorAll("button").forEach(function(click){
+                click.onclick=function(){
+                    let userpick=click.value
+                    console.log(userpick)
+
+                    if(coumputermove===userpick){
+                        alert("tie!")
+                    }
+                    else if((coumputermove==="rock" && userpick==="paper")||
+                    (coumputermove==="paper" && userpick==="sissors")||
+                    (coumputermove==="sissors"&& userpick==="rock")){
+                        alert("you win")
+                    }
+                    else{
+                        alert("you lose")
+                    }
+
+                }
+            })
+
+
+
+
+        })
+
+    </script>
+
+
+</head>
+<body>
+
+    <button id="rock" value="rock">rock</button>
+    <button id="paper" value="paper">paper</button>
+    <button id="sissors" value="sissors">sissors</button>
+    
+</body>
+</html>
